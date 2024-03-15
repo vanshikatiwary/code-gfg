@@ -1,8 +1,5 @@
 //{ Driver Code Starts
 //Initial Template for Java
-
-
-
 import java.util.stream.Collectors; 
 import java.util.*;
 import java.io.*;
@@ -35,20 +32,15 @@ public class Main {
 class Solution {
     int print2largest(int arr[], int n) {
         // code here
-          Arrays.sort(arr);
-        int result = 0;
-        
-for(int i=n-1; i>0; i--) {
-if(arr[i]!=arr[i-1]) {
-result = arr[i-1];
-break;
-}
-}
- 
-if(result ==0)
-    result = -1;
- 
-return result;
+        Arrays.sort(arr);
+    for(int i=n-1;i>=0;i--){
+       int k=arr[n-1];
+        if(arr[i]!=k){
+            return arr[i];
+            // break;
+        }
+    }
+     return -1;
     }
 }
-   
+    
