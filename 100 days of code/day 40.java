@@ -6,30 +6,27 @@ Welcome to GDB Online.
   Code, Compile, Run and Debug online from anywhere in world.
 
 *******************************************************************************/
-class Solution{
-     String longestCommonPrefix(String arr[], int n){
+     class Solution{
+          String longestCommonPrefix(String arr[], int n){
+        // code here
+        if(arr.length==1) return arr[0];
         
-        if(n==1) return arr[0];
+        String word1 = arr[0];
+        String word2 = "";
+        String result="";
         
-        String word1=arr[0];
-        String res="";
-        
-        for(int i=1; i<n; i++){
-            res = compareString(word1,arr[i]);
-            word1 = res;
+        for(int i=1;i<n;i++){
+            int j=0;
+            result="";
+            word2=arr[i];
+            while(j<word1.length() && j<word2.length()){
+                if(word1.charAt(j)==word2.charAt(j)) result += word1.charAt(j);
+                else break;
+                j++;
+            }
+            word1=result;
         }
-        return res;
-    }
-    public String compareString(String str1, String str2){
-        String res = "";
-        int size = Math.min(str1.length(), str2.length());
-        int i=0;
-        while(i<size){
-            if(str1.charAt(i)!=str2.charAt(i)) break;
-            else res += str1.charAt(i);
-            i++;
-        }
-        if(res=="") return "-1";
-        return res;
+      if(result=="") return "-1";
+      return result;
     }
 }
