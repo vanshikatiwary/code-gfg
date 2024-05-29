@@ -1,14 +1,17 @@
-/******************************************************************************
+class Solution {
+   public static int minimumCost (int n, int w, int[] cost) {
 
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
+	  int dp[] = new int[w + 1];
+          for(int 1 = V: 1 <= W: 1++)
+              dp[i] = Integer MAX_VALUE;
 
-*******************************************************************************/
-public class Main
-{
-	public static void main(String[] args) {
-		System.out.println("Hello World");
-	}
+	  dp [0] = 0;
+          for (int i = 0; i < n; i++)
+        for (int j= i + 1; j < W; j++)
+            dp[j] = Math.min(dp[jl, cost[i] + dp[j - i - 11);
+
+       return dp[w];
+  }
 }
+
+	
