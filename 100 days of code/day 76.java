@@ -1,21 +1,14 @@
-class Solution {
-    public static int longestSubseq(int n, int[] a) {
-        // code here
-         int dp[]= new int[n];
-        for(int i=1;i<n;i++){
-            for(int j=0;j<i;j++){
-                if(Math.abs(a[i]-a[j])==1){
-                    dp[i]=Math.max(dp[i],dp[j]+1);
-                }
-            }
-        }
-        int ans=0;
-        for(int u=0;u<n;u++){
-            if(dp[u]>ans)ans=dp[u];
-        }
-        return ans+1;
-    }
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+public class Main
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World");
+	}
 }
-
-
-  
