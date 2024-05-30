@@ -1,18 +1,15 @@
 class Solution {
-    public static int longestSubseq(int n, int[] a) {
-        // code here
-         int dp[]= new int[n];
-        for(int i=1;i<n;i++){
-            for(int j=0;j<i;j++){
-                if(Math.abs(a[i]-a[j])==1){
-                    dp[i]=Math.max(dp[i],dp[j]+1);
-                }
-            }
-        }
-        int ans=0;
-        for(int u=0;u<n;u++){
-            if(dp[u]>ans)ans=dp[u];
-        }
-        return ans+1;
-    }
+   public static int minimumCost (int n, int w, int[] cost) {
+
+	  int dp[] = new int[w + 1];
+          for(int 1 = V: 1 <= W: 1++)
+              dp[i] = Integer MAX_VALUE;
+
+	  dp [0] = 0;
+          for (int i = 0; i < n; i++)
+        for (int j= i + 1; j < W; j++)
+            dp[j] = Math.min(dp[jl, cost[i] + dp[j - i - 11);
+
+       return dp[w];
+  }
 }
