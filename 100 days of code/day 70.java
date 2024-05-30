@@ -1,28 +1,30 @@
 class Solution {
-    int[] printKClosest(int[] arr, int n, int k, int x) {
-        // code here
-         int left=0, right=n;
-        while (left < right) {
-            int mid = left + (right - left)/2;
-            if (x <= arr[mid])
-                right = mid;
-            else
-                left = mid+1;
+    public static int noOfGasStationsBetween(int[] arr, double dist) {
+        int cnt = 0, n = arr.length;
+    
+        for (int i = 0; i < n - 1; i++) {
+          double stationsInBetween = (arr[i + 1] - arr[i]) / dist;
+          cnt += stationsInBetween;
         }
-        int[] result = new int[k];
-        int i=left-1, j= (left < n && arr[left] != x) ? left : left+1;
-        for (int a=0;a<k;a++) {
-            if (i >= 0 && j < n) {
-                result[a] = (arr[j]-x <= x-arr[i]) ? arr[j++] : arr[i--];
-            }
-            else if (i >= 0) {
-                result[a] = arr[i--];
-            }
-            else {
-                result[a] = arr[j++];
-            }
-        }
-        return result;
+    
+        return cnt;
     }
-}
-  
+
+    public static double findSmallestMaxDist(int[] arr, int k) {
+        int n = arr.length;
+        double maxi = Integer.MIN_VALUE;
+        for (int i = 0; i < n - 1; i++) maxi =
+          Math.max(maxi, (double) (arr[i + 1] - arr[i]));
+    
+        double low = 0, high = maxi, diff = 1e-6; // 10^-6
+        while(high - low > diff) {
+            double mid = low + (high - low) / 2;
+            if(noOfGasStationsBetween(arr, mid) <= k)
+                high=mid;
+            else    
+                low=mid;
+        }
+        
+        return high;
+    }
+};
