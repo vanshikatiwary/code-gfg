@@ -1,29 +1,28 @@
 class Solution {
-     static int mod = (int) 1e9+7;
-    public static int countPartitions(int n, int d, int[] arr) {
-        // code here
-        int sum = 0;
-        for(int num : arr) sum += num;
-        if( (sum-d) % 2 == 1) return 0;
-        int half = (sum-d)/2;
-        if(half < 0) return 0;
-        int[][] dp = new int[n][half+1];
-        for(int[] temp : dp) {
-            Arrays.fill(temp, -1);
+    long max_Books(int arr[], int n, int k) {
+        // Your code here
+           long m=0;
+        long a=0;
+        int i=0;
+        while(i<n)
+        {
+            if(arr[i]<=k)
+            {
+                a=0;
+                while(i<n && arr[i]<=k)
+                {
+                    a+=arr[i];
+                    i++;
+                }
+                m=Math.max(a,m);
+            }
+            
+            else
+            {
+                i++;
+            }
+            
         }
-        return helper(half, 0, n, arr, 0, dp)%mod;
-        
-    }
-    
-    private static int helper(int sum, int temp, int n, int[] arr, int idx, int[][] dp) {
-        if(idx == n || temp > sum) {
-            if(sum == temp) return 1;
-            return 0;
-        } 
-        if(dp[idx][temp] != -1) return dp[idx][temp]%mod;
-        int ans = 0;
-        ans += helper(sum, temp+arr[idx], n, arr, idx+1, dp);
-        ans += helper(sum, temp, n, arr, idx+1,dp);
-        return dp[idx][temp] = ans%mod;
+        return m;
     }
 }
