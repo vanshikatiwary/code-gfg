@@ -1,29 +1,35 @@
 class Solution {
-    long max_Books(int arr[], int n, int k) {
-        // Your code here
-           long m=0;
-        long a=0;
-        int i=0;
-        while(i<n)
-        {
-            if(arr[i]<=k)
-            {
-                a=0;
-                while(i<n && arr[i]<=k)
+    
+    public int findMinCost(String x, String y, int costX, int costY) {
+        
+         int a = x.length();
+         int b = y.length();
+        
+        int arr[] = new int[b+1], prev[] = new int[b+1];
+        
+        for(int i=1; i<=a; i++){
+            for(int j=1; j<=b; j++){
+                
+                if(x.charAt(i-1) == y.charAt(j-1))
+                    {
+                        
+                    arr[j] = prev[j-1] + 1;
+                }else
                 {
-                    a+=arr[i];
-                    i++;
+                    
+                    arr[j] = Math.max( arr[j-1], prev[j] );
                 }
-                m=Math.max(a,m);
             }
             
-            else
-            {
-                i++;
-            }
-            
+            prev = arr;
+            arr = new int[b+1];
         }
-        return m;
+        
+        int ans = prev[b];
+        
+        int p = a-ans;
+        int q = b-ans;
+        
+        return p*costX + q*costY;
     }
 }
-
